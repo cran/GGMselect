@@ -1,0 +1,11 @@
+citHeader("To cite the GGMselect package in publications use:")
+citEntry(
+entry="Misc",
+author = "Giraud, Christophe and Huet, Sylvie and Verzelem, Nicolas",
+title = "Graph selection with GGMselect",
+howpublished=  "arXiv:0907.0619",
+year =	 2009,
+url = "http://fr.arxiv.org/abs/0907.0619",
+textVersion = "Christophe Giraud, Sylvie Huet, Nicolas Verzelem.
+(2009). Graph selection with GGMselect.  http://fr.arxiv.org/abs/0907.0619"
+)

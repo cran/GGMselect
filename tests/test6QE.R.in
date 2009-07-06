@@ -1,0 +1,28 @@
+load("sh6GRest")
+itest=6
+source("supLab.R")
+# +++++++++++++++++++++++++++++++++++++++++++++++++
+p=50
+n=30
+eta=0.1
+dmax=4
+iG = 7
+iS = 9
+set.seed(iG)
+Gr <- simulateGraph(p,eta)
+set.seed(iS*(pi/3.1415)**iG)
+X <- rmvnorm(n, mean=rep(0,p), sigma=Gr$C)
+
+K=2.5
+
+ptm <- proc.time()
+
+mon6GRest <- selectQE(X, dmax, K, verbose=TRUE)
+
+cat("Elapsed time ",  proc.time()-ptm,"\n")
+cat(" Comparison to the genuine output: is the test sucessful?\n")
+sh6GRest <- supLab(sh6GRest)
+print(all.equal(t(mon6GRest$G), sh6GRest[1,,]))
+cat ("End of test ", itest, "\n")
+
+

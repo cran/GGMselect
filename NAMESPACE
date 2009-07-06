@@ -1,0 +1,8 @@
+# Les points d'entree C ou Fortran appelés par les fonctions R;
+useDynLib(GGMselect, bouclet,
+GGMModC01,GGMloopAND,GGMloopEWOR,GGMloopC01, GGMSCRa, GGMGrMin,
+GGMloopGrSymQE, GGMcalcSCRQE,  GGMscrgcritQE, GGMcritminQE, GGMbcSW )
+# pas utile: import(mvtnorm,mvbutils, gtools)
+# On n'importe pas  lars, car ce package n'a pas de fichier NAMESPACE
+# Les fonctions R a disposition de l'utilisateur
+export(penalty,simulateGraph,selectFast,selectQE,selectMyFam,convertGraph)
