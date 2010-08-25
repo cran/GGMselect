@@ -377,6 +377,10 @@ FUNCTION
   }
   return(Proj)
   }
+NOTE:
+ To avoid possible double computation of svd, it is calculated svd(M)
+ and never svd(M,nu=0,nv=0) which produced the same main result with
+ reduced output
 --------------------------------------------------
 INPUT:
  V: n x d matrix
@@ -439,6 +443,7 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 */
 
   /* Compute:         svdM <- svd(M)  */
+
   GGMsvdM(M, dd, dd, dd, dd, iwork, xvals, W2, W3, svdMd, vu, svdMv);
 
   /* Compute: rgV <- sum(svdM$d > min.vp) */
@@ -449,7 +454,7 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
   }
 
   if (rgV ==0) {
-    error("Internal error in calcProjInd: rgV=0 \n");
+    error("No eigenvalue for matrix inversion greater than min.ev: decrease the argument 'min.ev' \n");
   }
 
   if (rgV == dd ) {

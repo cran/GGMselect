@@ -13,8 +13,8 @@ This package is developed in the Applied Mathematics and Informatics
 To cite GGMselect, please use \code{citation("GGMselect")}.}
 \details{\tabular{ll}{
 Package: \tab GGMselect\cr
-Version: \tab 0.1-0\cr
-Date: \tab 2009-07-06\cr
+Version: \tab 0.1-2\cr
+Date: \tab 2010-25-08\cr
 Depends: \tab mvtnorm, lars, mvbutils (>= 2.0), gtools\cr
 Suggests: \tab network, glasso\cr
 License:\tab GPL (>= 3)\cr

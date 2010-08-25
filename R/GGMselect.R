@@ -32,7 +32,7 @@ verifyArg <- function( X, dmax, K, min.ev, max.iter) {
     stop("X must have more than three rows")
 
   if (max.iter<=0)
-    stop("bad value of max.iter")
+    stop("bad value of max.iter: should be positive")
   
   # dmax verification
   ldmax <-length(dmax) 
@@ -51,7 +51,7 @@ verifyArg <- function( X, dmax, K, min.ev, max.iter) {
   
   # min.ev verification
   if ((min.ev < 0) || (min.ev > 0.01))
-    stop("bad value of min.ev")
+    stop("bad value of min.ev: should be in [0, 0.01]")
 
 return(list(n=n, p=p, Dmax=Dmax))
 } # fin verifyArg
