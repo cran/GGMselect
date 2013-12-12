@@ -30,8 +30,9 @@ if (p<2)
   # dmax verification
   ldmax <-length(dmax) 
     if ( any(dmax<1) ||  any(dmax > (n-3)) || any(dmax > (p-1)))
+#    if ( any(dmax<1) ||  any(dmax > (n-3)) || any(dmax > p))
     stop(
-         "dmax must be greater than 0 and less than n - 3 and p - 1")
+         "dmax must be greater than 0 and less than n - 3 and p")
     if ( any(round(dmax) != dmax)) {
       stop("dmax must be integer")
     }

@@ -37,7 +37,7 @@ EW <- function(x,y,beta,tau,h,T0,max.iter,eps) {
   
   veutlw <-  0
   LEW<-seq(p)*0
-
+  
     L <- .Fortran("bouclet",
                   as.integer(p),as.integer(k),
                   as.integer(veutlw),
@@ -48,6 +48,10 @@ EW <- function(x,y,beta,tau,h,T0,max.iter,eps) {
                   out=as.double(L),
                   as.double(LEW))$out
   
+  #ADD 05/12/2011
+  if (all(is.na(L)))
+    stop("Error in loops for the method EW: all results are Na")
+
   crit<-eps
   veutlw <-  1
   i <- 0 #iteration index

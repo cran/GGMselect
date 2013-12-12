@@ -1,4 +1,6 @@
+
 #include <math.h>
+#include <Rmath.h>
 #include <R.h>
 #include <Rinternals.h>
 #include <Rdefines.h>
@@ -74,6 +76,9 @@ void GGMupdateGr0(int nrowGr, int ncolGr,
 
 
   NVoisGr[i1]--;
+  // VOIR SH
+  NVoisGr[i1]= imax2(0,  NVoisGr[i1]);
+
 
   for (l=0; l <ncolGr; l++) {
     //    if (Gr[i1,l]  == -b) {
@@ -358,6 +363,8 @@ void GGMSCRa(int *ia, int *n, int *p,
 		    double *xvals,
 		    double *Pr) {
   int i, l, ii, iia, ind;
+
+
 R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
   iia = (*ia)-1; // indice a partir de zero
 
@@ -369,12 +376,12 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 
   // Mettre les colonnes dont les indices sont dans ind dans work
  ii=0;
-
   for (l=0; l <NVois[iia]; l++) {
     // Mettre dans ind Graph[ia, 1:NVois[ia]]
       //      ind = Graph[ia,l];
 
       ind = Graph[l*(*p)+iia]-1;
+      
       for (i=0; i< *n; i++) {
       //      work[ii++] = X[i, (ind-1)];
 	work[ii] = X[(*n) * ind +i]; 
@@ -382,11 +389,13 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
       }
   } // fin l
 
+
   GGMcalcProjInd(work,
 		 &(X[iia * (*n)]),
 		   n,  &NVois[iia],  minvp, iwork,
 		   svdMd, r1, W1, M, W2, W3, W4,
 		   vu, svdMv, xvals, Pr);
+
 
     scr[iia] =0.0;
     for (i=0; i< *n; i++) {
@@ -461,6 +470,8 @@ void GGMSCR(int a, int b, int n, int p,
 
 
 
+
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++
 FUNCTION
  Loop on the rows of GrGlob (method LA)
@@ -531,6 +542,7 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 
     if (NvGraph == 1)  {
       absb = abs(b);
+
       GGMSCR(a, absb, (*n), (*p),
 	     X, (*minvp), NVoisGraph, sumX2,
 	     Graph,scr, iwork, work,  svdMd, r1,
@@ -722,7 +734,6 @@ void GGMloopC01(int *n, int *p, int *lK, int *nrowGrGlob, int *ncolGrGlob,
 
   int i,a,b, absb, iia, iib;
 
-
 R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
  int err =0; //Retour de GGMGrMin
 
@@ -733,6 +744,8 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
     b = GrGlob[*nrowGrGlob+i];
     iia=a-1;
     iib=b-1;
+
+
     // Stopping rule: stops if it tries to add an edge to a node with degree more than Dmax
     // if  ((NVoisGraph[a]>=Dmax[a])|(NVoisGraph[b]>=Dmax[b]))  break
     if  ((NVoisGraph[iia]>=Dmax[iia])||(NVoisGraph[iib]>=Dmax[iib])) 
@@ -747,6 +760,8 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
     Graph[NVoisGraph[iib] * (*p) + iib]=a;
     NVoisGraph[iib]++;
     absb = abs(b);
+
+
     GGMSCR(a, absb, (*n), (*p),
 	     X, (*minvp), NVoisGraph, sumX2,
 	     Graph,scr, iwork, work,  svdMd, r1,
@@ -757,8 +772,10 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 	     pen, Graph, NVoisGraph, critmin, Neighb, &err);
       //  GGMGrMin modifie critmin et Neighb que si necessaire
   } // fin i
+
   if (err !=0)
     GGMmesserr("C01");
+
 } // fin loopC01
 /* ++++++++++++++++++++++++++++++++++++++++++++++++
  FUNCTION

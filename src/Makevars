@@ -1,4 +1,4 @@
-PKG_LIBS=  $(FLIBS) $(LAPACK_LIBS) $(BLAS_LIBS)
+PKG_LIBS= $(SAFE_FFLAGS) $(LAPACK_LIBS) $(BLAS_LIBS)  $(FLIBS)
 # Pour verifier:
 #PKG_CFLAGS=  -Wall -pedantic
 #PKG_FFLAGS= -Wall  -pedantic

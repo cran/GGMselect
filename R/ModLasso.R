@@ -3,7 +3,7 @@
 calcModLasso <- function(X, Dmax, method, max.st,
                           max.iter, eps,
                          beta,
-                         tau,  h,  T0) {
+                         tau,  h,  T0, verbose) {
   # ---------------------------------------------------------------
   # FUNCTION
   #   Select a set of candidate edges, ranked by importance
@@ -40,7 +40,8 @@ calcModLasso <- function(X, Dmax, method, max.st,
              betainit <- sapply(EW(x=Z,y=Y,beta,tau,h,T0, max.iter, eps),c)
     
     U <-  t(t(Z)*abs(betainit))
-    ll <- lars(U, Y, normalize=FALSE, intercept=FALSE, max.steps=modAgarder)
+
+    ll <- lars(U, Y, normalize=FALSE, intercept=FALSE, max.steps=modAgarder, trace= verbose)
     action <- unlist(ll$action)
     sign.act <- sign(action)
     Vois <- ((1:p)[-a])[abs(action)]*sign.act

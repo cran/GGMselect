@@ -1,4 +1,3 @@
-
 verifyArg <- function( X, dmax, K, min.ev, max.iter) {
   # ---------------------------------------------------------------
   # FUNCTION
@@ -37,8 +36,12 @@ verifyArg <- function( X, dmax, K, min.ev, max.iter) {
   # dmax verification
   ldmax <-length(dmax) 
   if ( any(dmax<1) ||  any(dmax > (n-3)) || any(dmax > (p-1)))
-    stop(
-         "values in dmax must be greater than 0, less than the number of rows of X - 3, less than the number of columns of X - 1")
+#//  if ( any(dmax<1) ||  any(dmax > (n-3)) || any(dmax > p))
+    stop(paste(
+         "values in dmax must be greater than 0, less or equal than the number of rows of X - 3 (",
+               (n-3),
+               "), less  or equal than the number of columns of X (",
+               (p-1), ")"))
     if ( any(round(dmax) != dmax)) {
       stop("dmax must be integer")
     }
@@ -67,6 +70,7 @@ selectFast <- function(X,
                   h=0.001, 
                   T0=10,
                   verbose=FALSE) {
+  
   # ---------------------------------------------------------------
   # FUNCTION
   #   Main function for the LA, EW, C01 families
@@ -118,7 +122,8 @@ selectFast <- function(X,
   res <- verifyArg( X, dmax, K, min.ev, max.iter)
   # Deplier la liste retournee.
   n <- res$n; p <- res$p;  Dmax <- res$Dmax
-  # Verifier les autres arguments
+
+ # Verifier les autres arguments
   validmethods <- c("LA", "EW", "C01")
   # Chaque methode ne doit apparaitre qu'une fois
   if (any((unique(family) != family)==TRUE) ||
@@ -133,7 +138,7 @@ selectFast <- function(X,
   
   # Calculate the penalty
   pen <- penalty(p, n,  Dmax, K)
-
+  
   # Main calculations
   return( calcLarsNEW(X, XNorm, Dmax,  pen, family,
                       min.ev, max.iter, eps,
@@ -149,6 +154,7 @@ calcLarsNEW <- function(X, XNorm, Dmax, pen, family,
                         max.iter, eps,
                         beta, tau, h,  T0,
                         verbose) {
+
   # ---------------------------------------------------------------
   # FUNCTION
   #   Compute the estimated graph for each family
@@ -180,6 +186,7 @@ calcLarsNEW <- function(X, XNorm, Dmax, pen, family,
   names(crit.min.init) <- dimnames(pen)[[2]]
   Dmaxmax <- max(Dmax) # Degree of the graph
 # liste des voisins de chaque sommet, pour chaque valeur de K:
+
   Neighb <- array(0,c(p, Dmaxmax, lK)) 
   dimnames(Neighb) <- list(as.character(1:p),
                            NULL,  dimnames(pen)[[2]])
@@ -188,19 +195,24 @@ calcLarsNEW <- function(X, XNorm, Dmax, pen, family,
   Graph<- array(0,c(p,Dmaxmax))  # current graph
 
   # Structures de travail, pour l'appel au C:
-  iwork <- array(0,p)
+ #CHANGE 5/12/2011  iwork <- array(0,p)
+#CHANGE 5/09/2012  iwork <- array(0,max(n,p))
+    iwork <- array(0,n*p)
   work <- array(0, n*Dmaxmax)
+  
   svdMd<- array(0,p)
    r1<- array(0, n*p)
    W1<- array(0, n*p)
-   W2<- array(0, p*p)
-   W3<- array(0, p*p)
-   M<- array(0, p*p)
+  W2<- array(0, p*p)
+  W3<- array(0, p*p)
+  M<- array(0, p*p)
    W4<- array(0,Dmaxmax )
-   vu<- array(0, p*p)
-   svdMv<- array(0, p*p)
-   xvals<- array(0, p*p)
+    vu<- array(0, p*p)
+    svdMv<- array(0, p*p)
+    xvals<- array(0, p*p)
    Pr<- array(0,n)
+
+  
   if ( (any(family == "LA")) || (any(family == "EW")))  {
     max.st <- min(n,p-1)
     Gr <- array(0,c(p,max.st))  # current memory of positive actions
@@ -224,7 +236,8 @@ calcLarsNEW <- function(X, XNorm, Dmax, pen, family,
         Gr[,]  <- 0
         NVoisGr[] <- 0
         GrGlob  <- calcModLasso(XNorm, Dmax, afamily, max.st,
-                                max.iter, eps, beta, tau,h, T0)
+                                max.iter, eps, beta, tau,h, T0, verbose)
+
       } 
       switch(afamily,
              LA =
@@ -306,6 +319,7 @@ as.integer(NVoisGraph),  as.integer(Graph),
 	       crit.min=as.double(crit.min),
              Neighb=as.integer(Neighb),
           NAOK=TRUE)
+               
                names(res$crit.min) <-   names(crit.min)      
                res$Neighb <- array(res$Neighb,c(p, Dmaxmax, lK))
                dimnames(res$Neighb) <- dimnames(Neighb)
@@ -371,6 +385,8 @@ as.integer(NVoisGraph),  as.integer(Graph),
 # Suppress the last dimension of G and Neighb when equal to 1
   if (lK ==1)
     output <- simplifDim(output)
+
+  
   return(output)
 } # fin calcLarsNEW
 

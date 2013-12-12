@@ -56,7 +56,6 @@ print(all.equal(a, GRest$C01$G)) # TRUE
 # recalculate the graph with selectMyFam
 GMF <- selectMyFam(X, list(a))
 print(all.equal(a,GMF$G)) # TRUE
-
 }
 \keyword{ multivariate } 
 \keyword{ graphs }

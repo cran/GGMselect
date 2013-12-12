@@ -13,18 +13,14 @@ This package is developed in the Applied Mathematics and Informatics
 To cite GGMselect, please use \code{citation("GGMselect")}.}
 \details{\tabular{ll}{
 Package: \tab GGMselect\cr
-Version: \tab 0.1-2\cr
-Date: \tab 2010-25-08\cr
-Depends: \tab mvtnorm, lars, mvbutils (>= 2.0), gtools\cr
-Suggests: \tab network, glasso\cr
-License:\tab GPL (>= 3)\cr
 URL: \tab \url{http://www.inra.fr/miaj/public/logiciels/GGMselect}\cr
 }}
 \author{Annie Bouvier, Christophe Giraud, Sylvie Huet, Verzelen Nicolas
 
   Maintainer: Annie Bouvier <Annie.Bouvier@jouy.inra.fr>
   
-  More details are available on \url{../doc/Notice.pdf}}
+  More details are available on \url{../doc/Notice.pdf}\cr
+}
 \references{Please use \code{citation("GGMselect")}.}
 \seealso{ \code{\link{selectFast}}, \code{\link{selectQE}},
  \code{\link{selectMyFam}},\code{\link{convertGraph}},

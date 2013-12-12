@@ -17,7 +17,7 @@ selectMyFam <- function(X,MyFamily,K=2.5, min.ev=10**(-8)){
   # ---------------------------------------------------------------
   # Liberer la memoire on exit
   # car celle-ci n'est pas liberee en cas d'interruption
-  on.exit(gc(verbose=FALSE), add=TRUE)
+#  VOIR on.exit(gc(verbose=FALSE), add=TRUE)
   
 
 # Input checks
@@ -110,6 +110,50 @@ checkinit <- function(p, n, MyFamily){
 	return(array(dmax,p))
 } # fin checkinit
 
+# ----------------------------------
+# Fonction appelee par mincrit via apply
+# -------------------------------------
+fung2 <- function(G) {
+  return (sum(G==1))
+} # fin fung2
+
+# ----------------------------------
+# Fonction appelee par mincrit via apply
+# -------------------------------------
+fung1<- function(G, maxnvois) {
+  l = grep(1,G)
+  
+  return ( c(l, rep(0, maxnvois-length(l))))
+  } # fin fung1
+
+
+
+# ----------------------------------
+# Fonction appelee par mincrit via apply
+# -------------------------------------
+funGGMSCRa<- function(a,
+            n, p, X, min.ev, NVois, sumX2,
+            GG, scr, iwork, work, svdMd, r1,
+            W1, M, W2, W3, W4, vu, svdMv, xvals, Pr) {
+
+  
+          res <- .C("GGMSCRa",
+               as.integer(a), as.integer(n), as.integer(p),
+               as.double(X), as.double(min.ev),
+               as.integer(NVois), as.double(sumX2),
+               as.integer(GG), scr=as.double(scr),
+               as.integer(iwork),as.double(work),
+               as.double(svdMd), as.double(r1),
+               as.double(W1), as.double(M),
+               as.double(W2), as.double(W3), as.double(W4),
+		    as.double(vu), as.double(svdMv),
+		    as.double(xvals),
+		    as.double(Pr), DUP=FALSE)$scr
+          
+            return(res[a])
+        } # fin funGGMSCRa
+
+  # ----------------------------------
 
 
 mincrit <- function(X,MyFamily,n,p,pen,min.ev, maxNVois){
@@ -134,8 +178,14 @@ mincrit <- function(X,MyFamily,n,p,pen,min.ev, maxNVois){
   Neighbmin <- array(0, c(p,   Dmaxmax, lK))
 # Pour l'appel au C
   NVois <- array(0, p)
-          work <- array(0, n*maxNVois)
-          iwork <- array(0,p)
+  work <- array(0, n*maxNVois)
+ 
+  
+#CHANGE 5/12/2011 taille iwork <- array(0,p)
+#CHANGE 17/04/2012  iwork <- array(0,max(n,p))
+  iwork <- array(0, n*p)
+
+  
           svdMd<- array(0,p*p)
           r1<- array(0, n*p)
           W1<- array(0, n*p)
@@ -161,26 +211,19 @@ mincrit <- function(X,MyFamily,n,p,pen,min.ev, maxNVois){
 "the diagonal of the ", g, "st adjacency matrix is supposed to be null")
                         diag(G) <- 0
                       }
-           GG <-  matrix(0, ncol=maxNVois, nrow=p)            
-          for (a in 1:p) {
-            NVois[a] <- sum(G[,a]==1)
-            if (NVois[a] >0)
+
+
+           NVois <- apply(G, 2, fung2)
+     #     GG <-  matrix(0, ncol=maxNVois, nrow=p)
+           GG= matrix(apply(G, 1, fung1, maxNVois), ncol=maxNVois, byrow=TRUE)
+
             # GG[a,] = les indices des voisins de a
-              GG[a,1:NVois[a]] <- grep(1, G[a,])
-             res <- .C("GGMSCRa",
-               as.integer(a), as.integer(n), as.integer(p),
-               as.double(X), as.double(min.ev),
-               as.integer(NVois), as.double(sumX2),
-               as.integer(GG), scr=as.double(scr),
-               as.integer(iwork),as.double(work),
-               as.double(svdMd), as.double(r1),
-               as.double(W1), as.double(M),
-               as.double(W2), as.double(W3), as.double(W4),
-		    as.double(vu), as.double(svdMv),
-		    as.double(xvals),
-		    as.double(Pr), DUP=FALSE)
-            scr[a] =res$scr[a]
-          } # fin a
+
+          vectp <- 1:p
+           scr = sapply(vectp, funGGMSCRa,
+            n, p, X, min.ev, NVois, sumX2,
+            GG, scr, iwork, work, svdMd, r1,
+            W1, M, W2, W3, W4, vu, svdMv, xvals, Pr)
           
           err <-0
           Neighb[,,] <- 0

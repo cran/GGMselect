@@ -1,0 +1,61 @@
+
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(GGMselect)
+Loading required package: mvtnorm
+Loading required package: lars
+Loaded lars 1.2
+
+Loading required package: gtools
+Loaded GGMselect 0.1.8
+
+> p=30
+> n=30
+> eta=0.13
+> dmax=3
+> iG = 4
+> iS = 20
+> set.seed(iG)
+> Gr <- simulateGraph(p,eta)
+> set.seed(iS*(pi/3.1415)**iG)
+> X <- rmvnorm(n, mean=rep(0,p), sigma=Gr$C)
+> 
+> K=2.5
+> mon1GRestALL <- selectFast(X, dmax, K, family="LA")
+> resFam <- selectMyFam(X, list(mon1GRestALL$LA$G), K)
+> 
+> print(all.equal(mon1GRestALL$LA$G, resFam$G))
+[1] TRUE
+> print(all.equal(mon1GRestALL$LA$Neighb[,1, drop=F], resFam$Neighb))
+[1] TRUE
+> print(all.equal(mon1GRestALL$LA$crit.min, resFam$crit.min))
+[1] TRUE
+> 
+> K=c(2.5, 1)
+> zz=selectFast(X, dmax, K, family="LA")
+> resFam <- selectMyFam(X, list(zz$LA$G[,,1], zz$LA$G[,,2]), K=K)
+> 
+> print(all.equal(zz$LA$G, resFam$G))
+[1] TRUE
+> print(all.equal(as.vector(zz$LA$Neighb[,1,1]), as.vector(resFam$Neighb[,,1])))
+[1] TRUE
+> print(all.equal(zz$LA$crit.min, resFam$crit.min))
+[1] TRUE
+> 
+> proc.time()
+   user  system elapsed 
+  0.801   0.027   0.822 

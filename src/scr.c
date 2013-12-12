@@ -231,7 +231,7 @@ void GGMsvd(double *x, int n, int p, int nu, int nv,
 
 //   xvals = (double *) R_alloc(dimxvals, sizeof(double));
 /* work on a copy of x */
-    Memcpy(xvals, x, dimxvals);
+ Memcpy(xvals, x, dimxvals);
 
     if (ldvt == -1) {
       // Quand on ne veut pas les v, par convention, nv=-1
@@ -242,24 +242,25 @@ void GGMsvd(double *x, int n, int p, int nu, int nv,
 
 	/* ask for optimal size of work array */
 	lwork = -1;
+
 	F77_CALL(dgesdd)(&job,
 			 &n, &p, xvals, &n, res,
 			 u, &ldu,
 			 v, &ldvt,
 			 &tmp, &lwork, iwork, &info);
+
 	if (info != 0)
-	    error(("error code %d from Lapack routine '%s'"), info, "dgesdd");
+	    error(("error code %d from first call to Lapack routine '%s'"), info, "dgesdd");
 	lwork = (int) tmp;
-
-	//	work = (double *) R_alloc(lwork, sizeof(double));
-	// On alloue par Calloc pour pouvoir desallouer
-	work = (double *) Calloc(lwork, double);
-
+	//	
+ 	// On alloue par Calloc pour pouvoir desallouer
+	work  = (double *) Calloc(lwork, double);
+	//	 work = (double *) R_alloc(lwork, sizeof(double));
 	F77_CALL(dgesdd)(&job,
 			 &n, &p, xvals, &n,  res,
 			 u, &ldu,
 			 v, &ldvt,
-			 work, &lwork, iwork, &info);
+			work, &lwork, iwork, &info);
 
 	Free(work);
 
@@ -344,10 +345,15 @@ void GGMsolveproj(  double *M, double *V, double *y, int nrowv,
  dgesv_(&ncolv, &nrhs, M, &ncolv, ipiv, B, &nrowv, info);
 
 
- if (*info !=0)
+ if (*info >0)
    {
-     error("Error in solveProj, code DGESV: %d\n",  info);
+     error("Error in solveProj, call to DGESV:\nMatrix singular.  The factorization has been completed, but the factor U is exactly singular, so the solution could not be computed.");
    }
+ if (*info <0)
+   {
+     error("Error in solveProj, call to DGESV:\n the %d-th argument had an illegal value", -(*info));
+   }
+
  GGMmultmm(V, B, nrowv, ncolv,nrhs, res);
 
 
@@ -431,7 +437,6 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
  */
 
   /* Compute:    M <- t(V)%*%V; */
-
   GGMmulttmm(V, V, nn, dd, dd, W1, M);
 
   /* Alloues avant une fois pour toutes
@@ -444,6 +449,8 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 
   /* Compute:         svdM <- svd(M)  */
 
+
+
   GGMsvdM(M, dd, dd, dd, dd, iwork, xvals, W2, W3, svdMd, vu, svdMv);
 
   /* Compute: rgV <- sum(svdM$d > min.vp) */
@@ -454,6 +461,7 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
   }
 
   if (rgV ==0) {
+
     error("No eigenvalue for matrix inversion greater than min.ev: decrease the argument 'min.ev' \n");
   }
 
@@ -682,6 +690,7 @@ SEXP GGMcalcSCRQE( SEXP gNormX, SEXP gpen, SEXP gligpen, SEXP glK,
       modChapKj = NUMERIC_POINTER(gmodChapKj);
 
     for (d=1; d<=rDmax[ja]; d++) {
+
       da = d - 1;
       // Le d-ieme composant de scrj (un vecteur)
       scrjd = 	REAL(VECTOR_ELT(scrj, da));
@@ -698,6 +707,7 @@ SEXP GGMcalcSCRQE( SEXP gNormX, SEXP gpen, SEXP gligpen, SEXP glK,
       // Pour le calcul du scr minimum
       ii =-1;
       minscrj = DBL_MAX;
+
       for (l=1; l<=rnMod[da]; l++) {
 	la=l-1;
 	for (i=0; i < d ; i++) {
@@ -720,6 +730,7 @@ SEXP GGMcalcSCRQE( SEXP gNormX, SEXP gpen, SEXP gligpen, SEXP glK,
 	// Proj est alloue avant l'appel
 	//	Proj = (double *) S_alloc(*rn, sizeof(double));
 	// d=nb col de rwork
+
 	GGMcalcProjInd(rwork, rworkj, rn, &d, rminvp,
 		       riwork, rsvdMd, rr1,
 		     rW1, rM,

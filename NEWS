@@ -1,5 +1,50 @@
 =============
-Version 0.1-2
+Release 0.1-8
+Date: 2013-12-12
+=============
+* Compatibility change: function 'onLoad' replaced by function
+  		'onAttach'. It is coded in file 'zzz.R' instead of 
+		file 'onLoad.R'
+* Improve tests: add results display in the test files
+
+=============
+Release 0.1-7
+Date: 2013-03-08
+=============
+* Minor changes for R3.0.0 compatibility
+
+=============
+Release 0.1-6
+Date: 2012-09-05
+=============
+* Fix bugs: Increase size of the iwork working array
+            for the invocation of dgesdd
+	    Condition the output of lars to the value of
+	    the argument 'verbose'
+
+=============
+Release 0.1-5
+Date: 2012-04-17
+=============
+* Fix bugs: Increase size of the iwork working array,
+      	    in "MyFamily"
+
+=============
+Release 0.1-4
+Date: 2011-12-05
+=============
+* Fix bugs: Increase size of the iwork working array, and
+            stop when the return of bouclet is entirely equal to NaN 
+            in EW
+
+=============
+Release 0.1-3
+Date: 2011-02-09
+=============
+* Some changes in the Notice
+
+=============
+Release 0.1-2
 Date: 2010-08-25
 =============
 * Make more explicit some error messages

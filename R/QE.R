@@ -229,6 +229,7 @@ calcSCRQE <- function(X, Dmax, Dmaxmax,  min.ev,
     
   lesMod <- list(NULL)
   nMod <- rep(0,Dmaxmax)
+
   for (d in 1:Dmaxmax) {
       nMod[d] <- choose(p-1,d)
       lesMod[[d]] <- t(combinations(p-1,d)) 

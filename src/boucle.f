@@ -30,15 +30,16 @@ c     calcul XXL
 c     premier update
          b4: do i=1,p
             L(i)=L(i)+a*(Xy(i)-XXL(i))+b*alea((it-1)*p+i)
+           
 c     second update
             L(i)=L(i)-c*L(i)/(d+L(i)**2)
+
             if (veutlw .NE. 0) LEW(i)=LEW(i)+L(i)*h
             end do b4
       end do b1
 c To verify
-c       if (veutlw .NE. 0)
-c     c      write(6, 1001) L(1), L(2)
+c           write(6, 1001) L(1), L(2)
 c      if (veutlw .NE. 0)
 c     c      write(6, 1001) LEW(1), LEW(2)
-c 1001  FORMAT(2(2x,d10.4)) 
+ 1001  FORMAT(2(2x,d10.4)) 
       end subroutine  bouclet
