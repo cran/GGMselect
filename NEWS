@@ -1,10 +1,21 @@
 =============
+Release 0.1-9
+Date: 2014-09-10
+=============
+* R new version compatibility change: option DUP=FALSE in the call to
+                the C programs removed (soon deprecated)in MyFamily.R
+* NAMESPACE: import of the suggested packages added
+* man files: include example code chunks in  "dontrun" to avoid
+             long time executions
+* scr files: remove unused declarations and variables
+
+=============
 Release 0.1-8
 Date: 2013-12-12
 =============
-* Compatibility change: function 'onLoad' replaced by function
-  		'onAttach'. It is coded in file 'zzz.R' instead of 
-		file 'onLoad.R'
+* R new version compatibility change: function 'onLoad' replaced by 
+    		function 'onAttach'. It is coded in file 'zzz.R' 
+                instead of file 'onLoad.R'
 * Improve tests: add results display in the test files
 
 =============

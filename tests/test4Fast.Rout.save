@@ -1,6 +1,6 @@
 
-R version 3.0.1 (2013-05-16) -- "Good Sport"
-Copyright (C) 2013 The R Foundation for Statistical Computing
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -21,7 +21,7 @@ Loading required package: lars
 Loaded lars 1.2
 
 Loading required package: gtools
-Loaded GGMselect 0.1.8
+Loaded GGMselect 0.1.9
 
 > itest=4
 > # +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -38,7 +38,7 @@ Loaded GGMselect 0.1.8
 > 
 > K=2.5
 > # ptm <- proc.time()
-> print( selectFast(X, dmax, K, family=c("EW","LA","C01")))
+> print( selectFast(X, dmax, K, family=c("EW","LA", "C01")))
 $EW
 $EW$Neighb
    [,1] [,2] [,3]
@@ -860,4 +860,4 @@ End of test  4>
 > 
 > proc.time()
    user  system elapsed 
- 21.337   0.280  21.668 
+ 19.779   0.475  20.248 

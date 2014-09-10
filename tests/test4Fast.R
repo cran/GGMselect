@@ -14,7 +14,7 @@ X <- rmvnorm(n, mean=rep(0,p), sigma=Gr$C)
 
 K=2.5
 # ptm <- proc.time()
-print( selectFast(X, dmax, K, family=c("EW","LA","C01")))
+print( selectFast(X, dmax, K, family=c("EW","LA", "C01")))
 # cat("Elapsed time ",  proc.time()-ptm,"\n")
 cat ("End of test ", itest)
 

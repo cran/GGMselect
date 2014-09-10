@@ -1,6 +1,6 @@
 
-R version 3.0.1 (2013-05-16) -- "Good Sport"
-Copyright (C) 2013 The R Foundation for Statistical Computing
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -21,7 +21,7 @@ Loading required package: lars
 Loaded lars 1.2
 
 Loading required package: gtools
-Loaded GGMselect 0.1.8
+Loaded GGMselect 0.1.9
 
 > data2 = read.table("GaussianData.txt", header=TRUE)
 > data=as.matrix(data2)
@@ -156,44 +156,44 @@ $LA$G
 > print(GRest <-selectQE(data, min.ev=0.01)) # OK
 $G
    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
-1  0 0 0 0 0 0 0 1 0  1  0  0  1  0  0  0
-2  0 0 0 1 0 1 0 0 0  0  0  1  0  0  0  0
-3  0 0 0 0 0 0 0 0 0  0  1  1  0  0  0  1
-4  0 1 0 0 1 0 1 0 0  0  0  0  0  0  0  0
-5  0 0 0 1 0 1 1 0 0  0  0  0  0  0  0  0
-6  0 1 0 0 1 0 1 0 0  0  0  0  0  0  0  0
+1  0 0 0 0 0 0 0 1 0  0  0  0  0  0  0  0
+2  0 0 0 1 0 1 0 0 0  0  0  0  0  0  0  0
+3  0 0 0 0 0 0 0 0 0  0  1  1  0  0  0  0
+4  0 1 0 0 0 0 1 0 0  0  0  0  0  0  0  0
+5  0 0 0 0 0 0 1 0 0  0  0  0  0  0  0  0
+6  0 1 0 0 0 0 1 0 0  0  0  0  0  0  0  0
 7  0 0 0 1 1 1 0 0 0  0  0  0  0  0  0  0
 8  1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0
 9  0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0
-10 1 0 0 0 0 0 0 0 0  0  1  0  0  0  0  1
+10 0 0 0 0 0 0 0 0 0  0  1  0  0  0  0  1
 11 0 0 1 0 0 0 0 0 0  1  0  0  0  0  0  0
-12 0 1 1 0 0 0 0 0 0  0  0  0  0  1  0  0
-13 1 0 0 0 0 0 0 0 0  0  0  0  0  0  1  0
+12 0 0 1 0 0 0 0 0 0  0  0  0  0  1  0  0
+13 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0
 14 0 0 0 0 0 0 0 0 0  0  0  1  0  0  0  0
-15 0 0 0 0 0 0 0 0 0  0  0  0  1  0  0  1
-16 0 0 1 0 0 0 0 0 0  1  0  0  0  0  1  0
+15 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  1
+16 0 0 0 0 0 0 0 0 0  1  0  0  0  0  1  0
 
 $crit.min
-[1] 202449.7
+[1] 0
 
 $Neighb
    [,1] [,2] [,3]
-1     8   10   13
-2     4    6   12
-3    11   12   16
-4     2    5    7
-5     4    6    7
-6     2    5    7
+1     8    0    0
+2     4    6    0
+3    11   12    0
+4     2    7    0
+5     7    0    0
+6     2    7    0
 7     4    5    6
 8     1    0    0
 9     0    0    0
-10    1   11   16
+10   11   16    0
 11    3   10    0
-12    2    3   14
-13    1   15    0
+12    3   14    0
+13    0    0    0
 14   12    0    0
-15   13   16    0
-16    3   10   15
+15   16    0    0
+16   10   15    0
 
 > #GRest <- selectFast(data, family="EW") # all results are Na
 > #GRest <- selectFast(data, family="EW", beta=400) # Matrix singular.
@@ -267,4 +267,4 @@ $EW$G
 > 
 > proc.time()
    user  system elapsed 
- 13.184   0.100  13.311 
+ 12.173   0.093  12.258 

@@ -6,3 +6,5 @@ GGMloopGrSymQE, GGMcalcSCRQE,  GGMscrgcritQE, GGMcritminQE, GGMbcSW )
 # On n'importe pas  lars, car ce package n'a pas de fichier NAMESPACE
 # Les fonctions R a disposition de l'utilisateur
 export(penalty,simulateGraph,selectFast,selectQE,selectMyFam,convertGraph)
+import(mvtnorm, lars, gtools)
+

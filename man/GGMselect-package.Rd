@@ -34,15 +34,15 @@ Gr <- simulateGraph(p,eta)
 # simulate data
 X <- rmvnorm(n, mean=rep(0,p), sigma=Gr$C)
 # estimate graph
-GRest <- selectFast(X)
+\dontrun{GRest <- selectFast(X)}
 
 # plot result
-library(network)
-par(mfrow=c(1,2))
-gV <- network(Gr$G)
-plot(gV,jitter=TRUE, usearrows = FALSE, label=1:p,displaylabels=TRUE)
-g <- network(GRest$EW$G)
-plot(g, jitter=TRUE, usearrows = FALSE,  label=1:p,displaylabels=TRUE)
+\dontrun{library(network)}
+\dontrun{par(mfrow=c(1,2))}
+\dontrun{gV <- network(Gr$G)}
+\dontrun{plot(gV,jitter=TRUE, usearrows = FALSE, label=1:p,displaylabels=TRUE)}
+\dontrun{g <- network(GRest$EW$G)}
+\dontrun{plot(g, jitter=TRUE, usearrows = FALSE,  label=1:p,displaylabels=TRUE)}
 }
 \keyword{ package }
 \keyword{ multivariate }

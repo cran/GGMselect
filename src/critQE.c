@@ -329,7 +329,8 @@ SEXP GGMscrgcritQE(SEXP list)
 {
   int *n, *p, *iK, *penrows, *scrGd;
   double *sumcrit, *pen, *scrGscr;
-  SEXP gscrG, scrG;
+  SEXP gscrG;
+// unused SEXP scrG;
 R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 
 // Acces aux valeurs des arguments
@@ -343,7 +344,7 @@ gscrG = getListElement(list,"scrG");
   scrGd =INTEGER_POINTER(getListElement(gscrG,"d"));
   sumcrit = REAL(getListElement(list,"sumcrit"));
 
-    scrG = GGMscrgQE( list);
+  // unused    scrG = GGMscrgQE( list);
     GGMcritQE((*p), (*n), (*penrows), (*iK),
 	       pen, scrGscr, scrGd,
 	      sumcrit);

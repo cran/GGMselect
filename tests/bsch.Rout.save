@@ -1,6 +1,6 @@
 
-R version 3.0.1 (2013-05-16) -- "Good Sport"
-Copyright (C) 2013 The R Foundation for Statistical Computing
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -21,7 +21,7 @@ Loading required package: lars
 Loaded lars 1.2
 
 Loading required package: gtools
-Loaded GGMselect 0.1.8
+Loaded GGMselect 0.1.9
 
 > attach("G3simone.Rdata")
 > attach("genes.lm.Rdata")
@@ -437,4 +437,4 @@ $ind.min
 > 
 > proc.time()
    user  system elapsed 
-  1.255   0.032   1.283 
+  1.326   0.043   1.366 

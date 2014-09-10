@@ -60,15 +60,15 @@ Gr <- simulateGraph(p,eta)
 # simulate data
 X <- rmvnorm(n, mean=rep(0,p), sigma=Gr$C)
 # estimate graph
-GQE <- selectQE(X)
+\dontrun{GQE <- selectQE(X)}
 
 # plot the result
-library(network)
-par(mfrow=c(1,2))
-gV <- network(Gr$G)
-plot(gV,jitter=TRUE, usearrows = FALSE, label=1:p,displaylabels=TRUE)
-gQE <- network(GQE$G)
-plot(gQE, jitter=TRUE, usearrows = FALSE,  label=1:p,displaylabels=TRUE)
+\dontrun{library(network)}
+\dontrun{par(mfrow=c(1,2))}
+\dontrun{gV <- network(Gr$G)}
+\dontrun{plot(gV,jitter=TRUE, usearrows = FALSE, label=1:p,displaylabels=TRUE)}
+\dontrun{gQE <- network(GQE$G)}
+\dontrun{plot(gQE, jitter=TRUE, usearrows = FALSE,  label=1:p,displaylabels=TRUE)}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

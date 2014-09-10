@@ -136,7 +136,7 @@ funGGMSCRa<- function(a,
             GG, scr, iwork, work, svdMd, r1,
             W1, M, W2, W3, W4, vu, svdMv, xvals, Pr) {
 
-  
+# 10/09/2014: remove the option DUP=FALSE (deprecated)  
           res <- .C("GGMSCRa",
                as.integer(a), as.integer(n), as.integer(p),
                as.double(X), as.double(min.ev),
@@ -148,9 +148,9 @@ funGGMSCRa<- function(a,
                as.double(W2), as.double(W3), as.double(W4),
 		    as.double(vu), as.double(svdMv),
 		    as.double(xvals),
-		    as.double(Pr), DUP=FALSE)$scr
-          
-            return(res[a])
+		    as.double(Pr))$scr
+
+          return(res[a])
         } # fin funGGMSCRa
 
   # ----------------------------------
@@ -228,7 +228,8 @@ mincrit <- function(X,MyFamily,n,p,pen,min.ev, maxNVois){
           err <-0
           Neighb[,,] <- 0
           crit[] <- Inf
-          res <- .C("GGMGrMin",
+# 10/09/2014: remove the option DUP=FALSE (deprecated)  
+             res <- .C("GGMGrMin",
                     as.integer(n), as.integer(p),
                     as.integer(lK), as.integer(ncol(GG)),
 	       as.integer(Dmaxmax), as.double(scr), as.double(pen),
@@ -236,7 +237,7 @@ mincrit <- function(X,MyFamily,n,p,pen,min.ev, maxNVois){
 	       as.integer(NVois), 
 	      crit=as.double(crit),
                Neighb= as.integer(Neighb),
-                    err=as.integer(err), DUP=FALSE, NAOK=TRUE)
+                    err=as.integer(err),  NAOK=TRUE)
           
 
           if (res$err != 0)

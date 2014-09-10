@@ -1,4 +1,5 @@
 PKG_LIBS= $(SAFE_FFLAGS) $(LAPACK_LIBS) $(BLAS_LIBS)  $(FLIBS)
 # Pour verifier:
-#PKG_CFLAGS=  -Wall -pedantic
-#PKG_FFLAGS= -Wall  -pedantic
+#PKG_CFLAGS=  -Wall -pedantic -ffloat-store -fexcess-precision=standard
+#  -mfpmath=sse
+# PKG_FFLAGS= -Wall  -pedantic 

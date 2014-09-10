@@ -41,5 +41,5 @@ c To verify
 c           write(6, 1001) L(1), L(2)
 c      if (veutlw .NE. 0)
 c     c      write(6, 1001) LEW(1), LEW(2)
- 1001  FORMAT(2(2x,d10.4)) 
+c 1001  FORMAT(2(2x,d10.4)) 
       end subroutine  bouclet
