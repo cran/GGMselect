@@ -78,7 +78,7 @@ selectFast <- function(X,
   #   End-user function.
   #   Estimate the graph of partial correlation from data
   # INPUT
-  # Entrées identiques à celles de selectQE:
+  # Same input as selectQE:
   #   X : n x p matrix (data set)
   #   dmax : scalar or p dimensional vector
   #         (maximum degree of the nodes of the graph)
@@ -88,7 +88,7 @@ selectFast <- function(X,
   #   family : scalar or vector taking value in "LA", "EW", "C01"
   #   (methods for building the collection of candidate graphs)
   #   min.ev : positive real number (for inversion)
-  # Entrées spécifiques à selectFast:
+  # Entrees specifiques a selectFast:
   #   max.iter : positive integer number (maximal number of
   #              iterations)
   #   eps  : positive real number (precision)
@@ -115,7 +115,7 @@ selectFast <- function(X,
   # ---------------------------------------------------------------
   # Liberer la memoire on exit
   # car celle-ci n'est pas liberee en cas d'interruption
-  # de l'exécution par l'utilisateur
+  #  par l'utilisateur
   on.exit(gc(verbose=FALSE), add=TRUE)
   
   # Verifier les arguments qui sont communs a selectQE
@@ -132,7 +132,7 @@ selectFast <- function(X,
   if ((eps<=0) || (eps>1))
     stop("bad value of eps")
   
-  # Centrer les données
+  # Centrer les donnees
   X <- scale(X,center=TRUE,scale=FALSE)
   XNorm <- scale(X,center=FALSE)/sqrt(n-1)
   
@@ -339,7 +339,7 @@ as.integer(NVoisGraph),  as.integer(Graph),
   if (is.element("C01",family) && is.element("LA",family)) {
     crit <- cbind(output$LA$crit.min,output$C01$crit.min)
     # Pour chaque valeur de K, on prend le plus petit
-    # critère parmi celui calculé par LA et celui calculé par C01
+    # critere parmi celui calcule par LA et celui calcule par C01
     ind.min <- apply(crit,1,which.min)
     output$C01.LA$crit.min <- 0*output$LA$crit.min
     output$C01.LA$Neighb <- 0*output$C01$Neighb
@@ -347,9 +347,9 @@ as.integer(NVoisGraph),  as.integer(Graph),
       output$C01.LA$crit.min[iK] <- crit[iK,ind.min[iK]]
 
       switch(ind.min[iK],
-             # =1 (le 1ier critère est celui calculé par LA)
+             # =1 (le 1ier critere est celui calcule par LA)
              output$C01.LA$Neighb[,,iK] <- output$LA$Neighb[,,iK],
-             # =2 (le 2ième critère est celui calculé par C01)
+             # =2 (le 2ieme critere est celui calcule par C01)
              output$C01.LA$Neighb[,,iK] <- output$C01$Neighb[,,iK],
              stop("Internal error: bad value ind.min")
              ) # fin switch
@@ -395,11 +395,11 @@ simplifDim <- function(output) {
   # FUNCTION  
   # Simplifier la structure des sorties:
   # enlever la derniere dimension de G et Neighb si elle
-  # est égale à 1
+  # est egale a 1
   # INPUT
-  #   output: liste contenant tous les résultats finaux
+  #   output: liste contenant tous les resultats finaux
   # OUTPUT
-  #   output: all the cpompoents G and Neighb have one dimension less
+  #   output: all the components G and Neighb have one dimension less
   # INPUT CONDITION
   #   The last dimension of G and Neighb is equal to 1
   # CALLED BY

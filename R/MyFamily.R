@@ -47,7 +47,7 @@ selectMyFam <- function(X,MyFamily,K=2.5, min.ev=10**(-8)){
   # Calculate the penalty
   pen <- penalty(p, n,  Dmax, K)
 
-  # Centrer les données
+  # Centrer les donnees
   X <- scale(X,center=TRUE,scale=FALSE)
 
   # Main calculations
@@ -106,7 +106,7 @@ checkinit <- function(p, n, MyFamily){
 		stop(
      "some graphs in MyFamily have a degree equal or larger than n-2. Please provide graphs with degree smaller than n-2, with n=nrow(X)=",n)
 
-# retourner dmax répété p fois
+# retourner dmax repete p fois
 	return(array(dmax,p))
 } # fin checkinit
 

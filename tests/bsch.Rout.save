@@ -1,6 +1,6 @@
 
-R version 3.1.1 (2014-07-10) -- "Sock it to Me"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
+Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -17,14 +17,10 @@ Type 'q()' to quit R.
 
 > library(GGMselect)
 Loading required package: mvtnorm
-Loading required package: lars
-Loaded lars 1.2
+Loaded GGMselect 0.1.10
 
-Loading required package: gtools
-Loaded GGMselect 0.1.9
-
-> attach("G3simone.Rdata")
-> attach("genes.lm.Rdata")
+> attach(system.file("extdata", "G3simone.Rdata", package="GGMselect"))
+> attach(system.file("extdata", "genes.lm.Rdata", package="GGMselect"))
 > 
 > print(selectMyFam(genes.lm, MyFamily = G3simone, K=10))
 $crit.min
@@ -437,4 +433,4 @@ $ind.min
 > 
 > proc.time()
    user  system elapsed 
-  1.326   0.043   1.366 
+  1.773   0.089   1.883 

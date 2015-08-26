@@ -14,7 +14,7 @@ convertGraph <- function(Graph) {
    # When length(K)=1, a matrix
   # Note:
   # Chapeau a convertGraph, pour tenir compte du cas length(K)=1
-  # quand appelé par l'utilisateur
+  # quand appele par l'utilisateur
   # CALLED BY
   #   End-user function.
   # ---------------------------------------------------------------

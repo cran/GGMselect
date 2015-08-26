@@ -1,4 +1,11 @@
 =============
+Release 0.1-10
+Date: 2015-08-26
+=============
+* NAMESPACE: import the used functions from the "stats" package.
+* Improve tests: suppress results that give different results on platforms without long doubles.
+
+=============
 Release 0.1-9
 Date: 2014-09-10
 =============

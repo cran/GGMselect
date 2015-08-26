@@ -63,11 +63,11 @@ if (p<2)
                     "max(Dmax)=", max(Dmax))
       # On n'ecrit pas le warning quand EDkhi$err ==2:
       # c'est le programme C qui utilise les penalites
-      # qui émettra un message dans le cas ou il
+      # qui emettra un message dans le cas ou il
       # utilise au moins une des valeurs
       # de pen mises a Inf par calcEDkhi. Ceci afin que
       # le warning n'apparaisse pas si on n'utilise pas les valeurs
-      # de pen concernées et n'apparaisse qu'une fois
+      # de pen concernees et n'apparaisse qu'une fois
       if (EDkhi$err !=2) {
         stop(mess)
       }

@@ -27,13 +27,6 @@ EW <- function(x,y,beta,tau,h,T0,max.iter,eps) {
   alea <- rnorm(p*k,mean=0,sd=1)
   #
   # Call Fortran subroutines
-  #
-  # NOTE AB: cela ne vaut pas la peine de réunir les 2 appels
-  # au Fortran dans un unique programme (Fortran ou C) car,
-  # dans ces langages, on ne peut générer qu'un nbre aleatoire
-  # a la fois, ce qui est plus long que d'utiliser la fonction
-  # rnorm dans R. Mais c'est à suivre car c'est dans les projets de R
-  # de remédier à cela.
   
   veutlw <-  0
   LEW<-seq(p)*0

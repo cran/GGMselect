@@ -17,7 +17,7 @@ selectQE <- function(X,
   #   End-user function.
   #   Estimate the graph of partial correlation from data
   # INPUT
-  # Entrées identiques à celles de selectFast:
+  # Entrees identiques a celles de selectFast:
   #   X : n x p matrix (data set)
   #   dmax : scalar or p dimensional vector
   #         (maximum degree of the nodes of the graph)
@@ -25,7 +25,7 @@ selectQE <- function(X,
   #         Default value: min(c(3,n-3,p-1))
   #   K : scalar or vector (tuning parameter)
   #   min.ev : positive real number (for inversion)
-  # Entrées spécifiques à selectQE:
+  # Entrees specifiques a selectQE:
   #   max.iter: integer scalar = maximum number of stepwise
   #             iterations
   #   max.nG: integer scalar= maximum number of graphs
@@ -53,11 +53,11 @@ selectQE <- function(X,
   # ---------------------------------------------------------------
   # Liberer la memoire on exit
   # car celle-ci n'est pas liberee en cas d'interruption
-  # de l'exécution par l'utilisateur
+  # de l'execution par l'utilisateur
   on.exit(gc(verbose=FALSE), add=TRUE)
   
   # Verifier les arguments qui sont communs aux autres methodes
-  # (see selectFast) et calculer Dmax, le degré de chaque noeud
+  # (see selectFast) et calculer Dmax, le degre de chaque noeud
   res <- verifyArg( X, dmax, K, min.ev, max.iter)
   # Deplier la liste retournee= extract.named(res)
   n <- res$n; p <- res$p;  Dmax <- res$Dmax
@@ -384,13 +384,13 @@ calcGrChapSymQE <- function( MatG, SCR, NormX, pen,  Dmax, n, p,
           cat("***    Running loop GrSymQE for iK =", iK,
               "and d = 1 to", d1, "\n")
       
-# dStop : compteur du nombre de pas effectués
+# dStop : compteur du nombre de pas effectues
       dStop <- 0
       for (d in 1:d1) {
         if (verbose)
           cat("***    GrSymQE: iK =", iK, "d =", d, "\n")
 
-# Le try permet de récupérer les éventuels pbes de place mémoire
+# Le try permet de recuperer les eventuels pbes de place memoire
         # et d'enchainer sur du stepwise s'il y en a
         go <- tryCatch({
          # calcul de Mod
@@ -398,7 +398,7 @@ calcGrChapSymQE <- function( MatG, SCR, NormX, pen,  Dmax, n, p,
           rm(Mod); gc(verbose=FALSE) # faire de la place en memoire
           Mod <- t(combinations(d1,d,ind1))
         } else {
-          # Quand mm!=0, on est sûr que cr existe:
+          # Quand mm!=0, on est sur que cr existe:
           # c'est la sortie de calcCritminQE
           if (cr$nModTG > 0) {
             if (dim(Mod)[2]==cr$nModTG) break # sortie de la boucle d
@@ -451,7 +451,7 @@ calcGrChapSymQE <- function( MatG, SCR, NormX, pen,  Dmax, n, p,
                                d, "rows and",
           ncolModOut, "columns. Stepwise procedure\n")})
 
-        # Des pbes mémoire sont survenus: on continue sur du stepwise
+        # Des pbes memoire sont survenus: on continue sur du stepwise
 if (!is.list(go)) {
   warning(" *** Memory problem: => stepwise is run for iK=",
           iK)
@@ -507,7 +507,7 @@ if (!is.list(go)) {
           W2=rep(0, p*p)
           W3=rep(0, p*p)
         }
-        # Calcul du graphe correspondant au dernier graphe calculé
+        # Calcul du graphe correspondant au dernier graphe calcule
 #       pour d=dStop
         vect.chap <- rep(0,length(vect))
         vect.chap[ mod.min[[dStop]] ] <- 1

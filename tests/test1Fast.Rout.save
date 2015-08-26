@@ -1,6 +1,6 @@
 
-R version 3.1.1 (2014-07-10) -- "Sock it to Me"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
+Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -17,11 +17,7 @@ Type 'q()' to quit R.
 
 > library(GGMselect)
 Loading required package: mvtnorm
-Loading required package: lars
-Loaded lars 1.2
-
-Loading required package: gtools
-Loaded GGMselect 0.1.9
+Loaded GGMselect 0.1.10
 
 > itest=1
 > # +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -560,4 +556,4 @@ End of test  1>
 > 
 > proc.time()
    user  system elapsed 
-  6.611   0.342   6.944 
+  8.920   0.297   9.209 

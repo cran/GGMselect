@@ -7,4 +7,5 @@ GGMloopGrSymQE, GGMcalcSCRQE,  GGMscrgcritQE, GGMcritminQE, GGMbcSW )
 # Les fonctions R a disposition de l'utilisateur
 export(penalty,simulateGraph,selectFast,selectQE,selectMyFam,convertGraph)
 import(mvtnorm, lars, gtools)
+importFrom("stats", "cor", "cov2cor", "pf", "rbinom", "rnorm", "runif",  "uniroot")
 
