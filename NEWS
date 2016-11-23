@@ -1,4 +1,13 @@
 =============
+Release 0.1-11
+Date: 2016-11-23
+=============
+* File src/critQE.c : fix a bug in function GGMcritminQE. 
+The argument was modified without previous copy, which can have 
+unpredictable results in some cases.
+* File DESCRIPTION: new URL for the package
+
+=============
 Release 0.1-10
 Date: 2015-08-26
 =============

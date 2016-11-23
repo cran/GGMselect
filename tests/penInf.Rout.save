@@ -1,7 +1,7 @@
 
-R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
-Copyright (C) 2015 The R Foundation for Statistical Computing
-Platform: x86_64-unknown-linux-gnu (64-bit)
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -19,7 +19,7 @@ Type 'q()' to quit R.
 Test of pen=Inf
 > library(GGMselect)
 Loading required package: mvtnorm
-Loaded GGMselect 0.1.10
+Loaded GGMselect 0.1.11
 
 > 
 > # ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1471,4 +1471,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
-  9.708   0.382  10.082 
+  4.002   0.062   4.070 

@@ -377,12 +377,16 @@ CALLED BY
    The R function calcCritminQE
  ++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-SEXP GGMcritminQE(SEXP list)
+SEXP GGMcritminQE(SEXP listarg)
 {
   int i, j,l,  *p, *ll, *dd,  *nModTG;
   int *Dmax, *G, *Mod, *ModTG, *MatGetiK, *critargmin;
   int Nv, nvd, maxnvd, icol, irow;
   double *sumcrit, *critmin;
+
+  // Duplicate the argument because it will be modified
+  SEXP list = duplicate(listarg);
+
 R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 
 // Acces aux valeurs des arguments
