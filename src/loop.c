@@ -1,3 +1,11 @@
+/* ---------------------------------------------------------------
+  GGMselect R package
+  Copyright INRA 2017
+  INRA, UR1404, Research Unit MaIAGE
+  F78352 Jouy-en-Josas, France.
+ 
+  URL: http://genome.jouy.inra.fr/logiciels/GGMselect
+-------------------------------------------------------------- */
 
 #include <math.h>
 #include <Rmath.h>
@@ -6,7 +14,7 @@
 #include <Rdefines.h>
 #include <R_ext/Utils.h> // pour permettre d'interrompre
 
-
+/* +++++++++++++++++++++++++++++++++++++++++++++ */
 extern void GGMcalcProjInd(double *V, double *y, 
 		    int *n, int *d, double *minvp,
 		    int *iwork, double *svdMd, double *r1,
@@ -15,6 +23,7 @@ extern void GGMcalcProjInd(double *V, double *y,
 		    double *vu, double *svdMv,
 		    double *xvals,
 			   double *Proj);
+
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++
 FUNCTION
@@ -838,5 +847,11 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 
 } //fin ModC01
 
-	
+
+
+
+
+
+
+
 

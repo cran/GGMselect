@@ -13,7 +13,7 @@ This package is developed in the Applied Mathematics and Informatics
 To cite GGMselect, please use \code{citation("GGMselect")}.}
 \details{\tabular{ll}{
 Package: \tab GGMselect\cr
-URL: \tab \url{http://www.inra.fr/miaj/public/logiciels/GGMselect}\cr
+URL: \tab \url{http://genome.jouy.inra.fr/logiciels/GGMselect}\cr
 }}
 \author{Annie Bouvier, Christophe Giraud, Sylvie Huet, Verzelen Nicolas
 

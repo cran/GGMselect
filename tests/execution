@@ -1,3 +1,0 @@
-R -d "valgrind --tool=memcheck --leak-check=full" --vanilla < sh9.2012.R
-# Execution par:
-# ./execution >sh.out 2>&1

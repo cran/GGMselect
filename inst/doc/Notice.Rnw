@@ -108,15 +108,15 @@
 \runtitle{ GGMselect}
 %\VignetteIndexEntry{GGMselect:  Introduction and User Guide}
 \begin{aug}
-\author{\fnms{Annie} \snm{Bouvier}\ead[label=e1]{Annie.Bouvier@jouy.inra.fr}},
+\author{\fnms{Annie} \snm{Bouvier}\ead[label=e1]{Annie.Bouvier@inra.fr}},
 \author{\fnms{Christophe} \snm{Giraud}\ead[label=e2]{Christophe.Giraud@polytechnique.edu}},
-\author{\fnms{Sylvie} \snm{Huet}\ead[label=e3]{Sylvie.Huet@jouy.inra.fr}},
+\author{\fnms{Sylvie} \snm{Huet}\ead[label=e3]{Sylvie.Huet@inra.fr}},
 \and	
 \author{\fnms{Nicolas} \snm{Verzelen}\ead[label=e4]{nicolas.verzelen@math.u-psud.fr}}
-\address{INRA, MIA, 78352 Jouy-en-Josas Cedex, FRANCE\\ \printead{e1}}
+\address{INRA, MaIAGE, 78352 Jouy-en-Josas Cedex, FRANCE\\ \printead{e1}}
 \address{Ecole Polytechnique, CMAP, UMR 7641\\ Route de Saclay 
 91128 Palaiseau Cedex, FRANCE  \\ \printead{e2}}
-\address{INRA, MIA, 78352 Jouy-en-Josas Cedex, FRANCE\\ \printead{e3}}
+\address{INRA, MaIAGE, 78352 Jouy-en-Josas Cedex, FRANCE\\ \printead{e3}}
 \address{Universit\'e Paris Sud, Laboratoire de Math\'ematiques, UMR 8628\\ Orsay Cedex F-91405\\ \printead{e4}}
 \runauthor{Bouvier, Giraud,  Huet, and  Verzelen }
 \end{aug}
@@ -130,7 +130,7 @@
 \maketitle
 
 
-\centerline{{Contact:} {\tt Annie.Bouvier@jouy.inra.fr}}
+\centerline{{Contact:} {\tt Sylvie.Huet@inra.fr}}
 \medskip
 
 \tableofcontents
@@ -191,7 +191,7 @@ $n$,
 and its risk  is controlled by a non-asymptotic oracle-like inequality. The assumptions needed to establish these results are weaker than those commonly used in the literature. In addition, numerical experiments have shown a nice behavior on simulated examples.
 
 \medskip
-\noindent{\bf Download}: \url{http://w3.jouy.inra.fr/unites/miaj/public/logiciels/GGMselect/}
+\noindent{\bf Download}: \url{http://genome.jouy.inra.fr/logiciels/GGMselect/}
 
 
 

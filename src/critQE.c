@@ -1,12 +1,22 @@
+/* ---------------------------------------------------------------
+  GGMselect R package
+  Copyright INRA 2017
+  INRA, UR1404, Research Unit MaIAGE
+  F78352 Jouy-en-Josas, France.
+ 
+  URL: http://genome.jouy.inra.fr/logiciels/GGMselect
+-------------------------------------------------------------- */
+
+/* ++++++++++++++ critQE  +++++++++++++++++++ */
 #include <R.h>
 #include <Rinternals.h>
 #include <Rdefines.h>
 #include <R_ext/Utils.h> // pour permettre d'interrompre
 
-// Copyright@INRA-2009
-// Pour accéder à un composant nommé d'une liste passée en
+// Pour accÃ©der Ã  un composant nommÃ© d'une liste passÃ©e en
 // argument
 extern SEXP getListElement(SEXP list, const char *str);
+
 
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -385,7 +395,7 @@ SEXP GGMcritminQE(SEXP listarg)
   double *sumcrit, *critmin;
 
   // Duplicate the argument because it will be modified
-  SEXP list = duplicate(listarg);
+  SEXP list = PROTECT(duplicate(listarg));
 
 R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 
@@ -488,7 +498,7 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
     }
 
   } //fin l
-  // Cas ou on est tjrs passé par le continue
+  // Cas ou on est tjrs passÃ© par le continue
   // ci-dessus, c.a.d  maxnvd>0 pour tout l
   if ( !R_FINITE(*critmin)) {
     for (j=0; j< (*dd); j++) {
@@ -496,9 +506,6 @@ R_CheckUserInterrupt(); // permettre a l'utilisateur d'interrompre
 	critargmin[j]= Mod[j];
     }
   }
+UNPROTECT(1);
   return(list);
 } // fin fonction
-
- 
-
-

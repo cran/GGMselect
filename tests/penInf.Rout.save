@@ -19,7 +19,7 @@ Type 'q()' to quit R.
 Test of pen=Inf
 > library(GGMselect)
 Loading required package: mvtnorm
-Loaded GGMselect 0.1.11
+Loaded GGMselect 0.1.12
 
 > 
 > # ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1471,4 +1471,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
-  4.002   0.062   4.070 
+  4.068   0.071   4.123 

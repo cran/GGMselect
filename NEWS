@@ -1,4 +1,12 @@
 =============
+Release 0.1-12
+Date: 2017-04-06
+=============
+* File src/critQE.c : protect the variable named "list" in 
+function GGMcritminQE
+* Register the C and Fortran routines
+
+=============
 Release 0.1-11
 Date: 2016-11-23
 =============

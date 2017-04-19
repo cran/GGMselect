@@ -17,7 +17,7 @@ Type 'q()' to quit R.
 
 > library(GGMselect)
 Loading required package: mvtnorm
-Loaded GGMselect 0.1.11
+Loaded GGMselect 0.1.12
 
 > attach(system.file("extdata", "G3simone.Rdata", package="GGMselect"))
 > attach(system.file("extdata", "genes.lm.Rdata", package="GGMselect"))
@@ -433,4 +433,4 @@ $ind.min
 > 
 > proc.time()
    user  system elapsed 
-  0.629   0.032   0.648 
+  0.631   0.014   0.706 

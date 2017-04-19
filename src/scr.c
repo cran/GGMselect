@@ -1,12 +1,19 @@
+/* ---------------------------------------------------------------
+  GGMselect R package
+  Copyright INRA 2017
+  INRA, UR1404, Research Unit MaIAGE
+  F78352 Jouy-en-Josas, France.
+ 
+  URL: http://genome.jouy.inra.fr/logiciels/GGMselect
+-------------------------------------------------------------- */
+
+/* ++++++++++++++ scr.c  +++++++++++++++++++ */
 #include <R.h>
 #include <Rinternals.h>
 #include <Rdefines.h>
 #include <R_ext/Lapack.h>
 #include <R_ext/Utils.h> // pour permettre l'interruption de l'exec
 #include <float.h>
-
-// Copyright@INRA-2009
-
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++
 FUNCTION
@@ -677,7 +684,7 @@ SEXP GGMcalcSCRQE( SEXP gNormX, SEXP gpen, SEXP gligpen, SEXP glK,
     setCol(rX, *rn, ja,  0, rworkj);
 
     // La boucle sur lK permet le calcul de MatChap et modChap
-    // dans la foulée
+    // dans la foulÃ©e
 
     for (ika=0; ika < *lK; ika++) {
       dcrmin =0;
@@ -799,5 +806,4 @@ SEXP GGMcalcSCRQE( SEXP gNormX, SEXP gpen, SEXP gligpen, SEXP glK,
     // Retour : les sorties sont SRC, matChap, modChap
 return(gSCRout);
 }
-
 

@@ -17,7 +17,7 @@ Type 'q()' to quit R.
 
 > library(GGMselect)
 Loading required package: mvtnorm
-Loaded GGMselect 0.1.11
+Loaded GGMselect 0.1.12
 
 > itest=3
 > # +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -166,4 +166,4 @@ End of test  3
 > 
 > proc.time()
    user  system elapsed 
-  1.665   0.022   1.692 
+  1.700   0.013   1.719 

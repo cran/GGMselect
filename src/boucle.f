@@ -1,4 +1,11 @@
-c Copyright@INRA-2009
+c   GGMselect R package
+c   Copyright INRA 2017
+c   INRA, UR1404, Research Unit MaIAGE
+c   F78352 Jouy-en-Josas, France.
+c  
+c   URL: http://genome.jouy.inra.fr/logiciels/GGMselect
+c --------------------------------------------------------
+
 c    Loops for the method EW
 c Called by the R function  EW
 

@@ -1,3 +1,14 @@
+ /* ---------------------------------------------------------------
+  GGMselect R package
+  Copyright INRA 2017
+  INRA, UR1404, Research Unit MaIAGE
+  F78352 Jouy-en-Josas, France.
+ 
+  URL: http://genome.jouy.inra.fr/logiciels/GGMselect
+-------------------------------------------------------------- */
+
+
+/* ++++++++++++++ QESW +++++++++++++++++++ */
 #include <R.h>
 #include <Rinternals.h>
 #include <Rdefines.h>
@@ -308,8 +319,6 @@ mm);
 	  return(xListOut);
 } // fin GGMbcSW
 	  
-
-
 
 
 
