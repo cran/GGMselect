@@ -1,7 +1,7 @@
 
-R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
-Copyright (C) 2016 The R Foundation for Statistical Computing
-Platform: x86_64-redhat-linux-gnu (64-bit)
+R Under development (unstable) (2018-02-01 r74191) -- "Unsuffered Consequences"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -17,7 +17,7 @@ Type 'q()' to quit R.
 
 > library(GGMselect)
 Loading required package: mvtnorm
-Loaded GGMselect 0.1.12
+Loaded GGMselect 0.1.12.1
 
 > itest=1
 > # +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -390,4 +390,4 @@ End of test  1
 > 
 > proc.time()
    user  system elapsed 
-  1.175   0.015   1.194 
+  1.699   0.043   1.728 
