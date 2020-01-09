@@ -1,4 +1,4 @@
-03f3b9a8fc988c08f821c5ab28c43a96 *DESCRIPTION
+50a0129d6a8116b6781fd3d21343edb3 *DESCRIPTION
 dfd99794ac830133cd0719d1c5a747ba *NAMESPACE
 9abf24f98030188aabec7319b32db1b7 *NEWS
 4f508b03cb609393fefb2f8d50035a5e *R/C01.R
@@ -11,7 +11,7 @@ fe4ea7e215aa7ef4baeb7b523176418b *R/QE.R
 ab1c3b22bedeb03e018152e7599d3a0c *R/penalty.R
 ca486df7b4177d0a675094bf161359d2 *R/simulateGraph.R
 601d92fb74355ce7c2f71ffa5471e284 *R/zzz.R
-c05ed42fc3d1fdfb02ee8196419f50a1 *build/vignette.rds
+c62a00fb31a0450a2da11b8419749847 *build/vignette.rds
 c987ba522921cd04131ef5ff3cebbdd4 *demo/00Index
 c1b5ba2f851daa7341df583badbee8ee *demo/convertGraph.R
 23752ebddd596303632ea5fb5c2bc2d5 *demo/penalty.R
@@ -22,10 +22,10 @@ a0a13f0fe2f4f70a01757618db72092c *demo/selectFast.R
 fef391225c5dfa8ca7bb21effd62c1a5 *inst/CITATION
 b0327abdade19a2ce97d9b4384d80d57 *inst/doc/Notice.R
 68637e982a705c30eeeda29ebfe9c040 *inst/doc/Notice.Rnw
-ab87445183301d18247906dad4d2f655 *inst/doc/Notice.pdf
+2969354b2142fe0a8ec562e0f811c8e0 *inst/doc/Notice.pdf
 2cca4f2dfd293af8f1489294ad88311c *inst/extdata/G3simone.Rdata
 f3ddc6714bb509d689d2ec6c4bf6d55c *inst/extdata/genes.lm.Rdata
-eac119624c225f9f9d0e8c3719e498b5 *man/GGMselect-package.Rd
+168dc01c171595ebab42b687370d5f52 *man/GGMselect-package.Rd
 b8e4af6cd4f5c9c9327711bb531f3de1 *man/convertGraph.Rd
 53c6f9aeb495e95f1a8c360ad062739c *man/penalty.Rd
 880e1dc78258d73b7b48260229f67de3 *man/selectFast.Rd

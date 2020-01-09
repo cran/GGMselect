@@ -8,7 +8,7 @@ Graphical Models. The main functions return the adjacency matrix of an
 undirected graph estimated from a data matrix.
 
 This package is developed in the Applied Mathematics and Informatics
-(\url{http://www.jouy.inra.fr/mia_eng/}) Lab of INRA - Jouy-en-Josas, France.
+(\url{https://maiage.inra.fr/}) Lab of INRA - Jouy-en-Josas, France.
 
 To cite GGMselect, please use \code{citation("GGMselect")}.}
 \details{\tabular{ll}{
@@ -17,7 +17,7 @@ URL: \tab \url{http://genome.jouy.inra.fr/logiciels/GGMselect}\cr
 }}
 \author{Annie Bouvier, Christophe Giraud, Sylvie Huet, Verzelen Nicolas
 
-  Maintainer: Annie Bouvier <Annie.Bouvier@jouy.inra.fr>
+  Maintainer: Benjamin Auder <benjamin.auder@universite-paris-saclay.fr>
   
   More details are available on \url{../doc/Notice.pdf}\cr
 }
