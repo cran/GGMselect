@@ -19,7 +19,6 @@ Type 'q()' to quit R.
 Test of pen=Inf
 > library(GGMselect)
 Loading required package: mvtnorm
-Loaded GGMselect 0.1.12.2
 
 > 
 > # ++++++++++++++++++++++++++++++++++++++++++++++++++++

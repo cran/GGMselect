@@ -17,7 +17,6 @@ Type 'q()' to quit R.
 
 > library(GGMselect)
 Loading required package: mvtnorm
-Loaded GGMselect 0.1.12.2
 
 > attach(system.file("extdata", "G3simone.Rdata", package="GGMselect"))
 > attach(system.file("extdata", "genes.lm.Rdata", package="GGMselect"))
