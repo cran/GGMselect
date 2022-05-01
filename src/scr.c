@@ -7,6 +7,8 @@
   URL: http://genome.jouy.inra.fr/logiciels/GGMselect
 -------------------------------------------------------------- */
 
+#define USE_FC_LEN_T
+
 /* ++++++++++++++ scr.c  +++++++++++++++++++ */
 #include <R.h>
 #include <Rinternals.h>
@@ -14,6 +16,10 @@
 #include <R_ext/Lapack.h>
 #include <R_ext/Utils.h> // pour permettre l'interruption de l'exec
 #include <float.h>
+
+#ifndef FCONE
+# define FCONE
+#endif
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++
 FUNCTION
@@ -254,7 +260,7 @@ void GGMsvd(double *x, int n, int p, int nu, int nv,
 			 &n, &p, xvals, &n, res,
 			 u, &ldu,
 			 v, &ldvt,
-			 &tmp, &lwork, iwork, &info);
+			 &tmp, &lwork, iwork, &info FCONE);
 
 	if (info != 0)
 	    error(("error code %d from first call to Lapack routine '%s'"), info, "dgesdd");
@@ -267,7 +273,7 @@ void GGMsvd(double *x, int n, int p, int nu, int nv,
 			 &n, &p, xvals, &n,  res,
 			 u, &ldu,
 			 v, &ldvt,
-			work, &lwork, iwork, &info);
+			work, &lwork, iwork, &info FCONE);
 
 	Free(work);
 

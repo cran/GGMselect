@@ -8,12 +8,12 @@ Graphical Models. The main functions return the adjacency matrix of an
 undirected graph estimated from a data matrix.
 
 This package is developed in the Applied Mathematics and Informatics
-(\url{https://maiage.inra.fr/}) Lab of INRA - Jouy-en-Josas, France.
+(\url{https://maiage.inrae.fr/}) Lab of INRA - Jouy-en-Josas, France.
 
 To cite GGMselect, please use \code{citation("GGMselect")}.}
 \details{\tabular{ll}{
 Package: \tab GGMselect\cr
-URL: \tab \url{http://genome.jouy.inra.fr/logiciels/GGMselect}\cr
+URL: \tab \url{https://CRAN.R-project.org/package=GGMselect}\cr
 }}
 \author{Annie Bouvier, Christophe Giraud, Sylvie Huet, Verzelen Nicolas
 
