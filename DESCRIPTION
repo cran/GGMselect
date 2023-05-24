@@ -1,8 +1,8 @@
 Package: GGMselect
-Type: Package
+Encoding: UTF-8
 Title: Gaussian Graphs Models Selection
-Version: 0.1-12.5
-Date: 2022-05-01
+Version: 0.1-12.6
+Date: 2023-05-22
 Author: Annie Bouvier, Christophe Giraud, Sylvie Huet, Verzelen N.
 Maintainer: Benjamin Auder <benjamin.auder@universite-paris-saclay.fr>
 Description: Graph estimation in Gaussian Graphical Models, following the method
@@ -15,6 +15,6 @@ Suggests: network, glasso
 License: GPL (>= 3)
 URL: https://CRAN.R-project.org/package=GGMselect
 NeedsCompilation: yes
-Packaged: 2022-05-01 14:07:48 UTC; auder
+Packaged: 2023-05-24 07:07:16 UTC; auder
 Repository: CRAN
-Date/Publication: 2022-05-01 15:10:05 UTC
+Date/Publication: 2023-05-24 16:10:04 UTC
