@@ -1,4 +1,4 @@
-# Les points d'entree C ou Fortran appelés par les fonctions R;
+# Les points d'entree C ou Fortran appeles par les fonctions R;
 # useDynLib(GGMselect, bouclet,
 # GGMModC01,GGMloopAND,GGMloopEWOR,GGMloopC01, GGMSCRa, GGMGrMin,
 # GGMloopGrSymQE, GGMcalcSCRQE,  GGMscrgcritQE, GGMcritminQE, GGMbcSW )
