@@ -266,8 +266,8 @@ void GGMsvd(double *x, int n, int p, int nu, int nv,
 	    error(("error code %d from first call to Lapack routine '%s'"), info, "dgesdd");
 	lwork = (int) tmp;
 	//	
- 	// On alloue par Calloc pour pouvoir desallouer
-	work  = (double *) Calloc(lwork, double);
+ 	// On alloue par R_Calloc pour pouvoir desallouer
+	work  = (double *) R_Calloc(lwork, double);
 	//	 work = (double *) R_alloc(lwork, sizeof(double));
 	F77_CALL(dgesdd)(&job,
 			 &n, &p, xvals, &n,  res,
@@ -275,7 +275,7 @@ void GGMsvd(double *x, int n, int p, int nu, int nv,
 			 v, &ldvt,
 			work, &lwork, iwork, &info FCONE);
 
-	Free(work);
+	R_Free(work);
 
 	if (info != 0)
 	    error(("error code %d from Lapack routine '%s'"), info, "dgesdd");

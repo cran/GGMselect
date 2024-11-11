@@ -1,7 +1,7 @@
 Package: GGMselect
 Encoding: UTF-8
 Title: Gaussian Graphs Models Selection
-Version: 0.1-12.7
+Version: 0.1-12.7.1
 Date: 2023-08-30
 Author: Annie Bouvier, Christophe Giraud, Sylvie Huet, Nicolas Verzelen.
 Maintainer: Benjamin Auder <benjamin.auder@universite-paris-saclay.fr>
@@ -15,6 +15,6 @@ Suggests: network, glasso
 License: GPL (>= 3)
 RoxygenNote: 7.2.3
 NeedsCompilation: yes
-Packaged: 2023-08-31 09:07:52 UTC; auder
+Packaged: 2024-11-09 19:51:51 UTC; ripley
 Repository: CRAN
-Date/Publication: 2023-08-31 09:30:02 UTC
+Date/Publication: 2024-11-11 17:35:43 UTC

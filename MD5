@@ -1,4 +1,4 @@
-d9ac5d45bde4894265969ebb0ad8e197 *DESCRIPTION
+abb365da27706cf63f60c74ac827446b *DESCRIPTION
 110612a12592901a8b369f63ecaad56a *NAMESPACE
 4f508b03cb609393fefb2f8d50035a5e *R/C01.R
 7b15b4cb68b48e059118487f57b38bf1 *R/EW.R
@@ -38,7 +38,7 @@ ae98c426dada2992a79a305acfef6160 *man/selectQE.Rd
 1252682d03d80787181f1b3aa59e022b *src/dclfunc.h
 e78fad10db28c9f9064eec4aa1bfd481 *src/init.c
 d21a375d6a2d1a152ec7ab5208ee24da *src/loop.c
-ff9dd75b0d379eb31607a2108c60ff4a *src/scr.c
+223a833feae9e44cf6328cc0064f27fe *src/scr.c
 e7fe616ed92aa5907cf264c2258068cb *tests/bsch.R
 e97a2ec6a5390c1ca000394436a0dfb4 *tests/bsch.Rout.save
 cc68f8b8016bfef8587546a4b2dbec07 *tests/penInf.R
